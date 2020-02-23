@@ -1,0 +1,17 @@
+.App {
+  text-align: left;
+}
+
+.list li:nth-child(2n) {
+  background-color: grey;
+}
+
+.checkboxList {
+  display: inline-flex;
+  flex-direction: column;
+  margin-right: 15px;
+}
+
+.checkboxList ul {
+  margin: 0;
+}
