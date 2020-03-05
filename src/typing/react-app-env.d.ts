@@ -2,6 +2,7 @@
 /// <reference types="react" />
 /// <reference types="react-dom" />
 /// <reference types="react-scripts" />
+/// <reference path="RelativePathToTypeScriptFile/TypeScript
 
 declare namespace NodeJS {
   interface ProcessEnv {
@@ -51,10 +52,10 @@ declare module '*.svg' {
   export default src;
 }
 
-// declare module '*.module.css' {
-//   const classes: { readonly [key: string]: string };
-//   export default classes;
-// }
+declare module '*.module.css' {
+  const classes: { readonly [key: string]: string };
+  export default classes;
+}
 
 declare module '*.module.sass' {
   const classes: { readonly [key: string]: string };

@@ -1,5 +1,6 @@
 import { Reducer } from "redux";
-import { WeatherActionType, WEATHER_ACTIONS } from "./info-page.action";
+import { WeatherActionType } from "./info-page.action";
+import {WEATHER_ACTIONS} from '../typing/enam';
 
 const infoPageReducer: Reducer<WeatherState, WeatherActionType> = (
   state = initialState,

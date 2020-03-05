@@ -10,7 +10,7 @@ const mapStateToProps = ({ infoPage }: State) => {
 
 const mapDispatchToProps = (dispatch: any) => ({
   isLoad: () => dispatch(IS_LOADING()),
-  getWeatherData: () => dispatch(getWeatherForecast())
+  getWeatherData: (cityName:string) => dispatch(getWeatherForecast(cityName))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(InfoPage);
