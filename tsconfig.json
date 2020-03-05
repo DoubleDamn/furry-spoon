@@ -6,22 +6,22 @@
       "es2015",
       "esnext"
     ],
-		"experimentalDecorators": true,
-		"baseUrl": "./",
-		"module": "esnext",
-		"noImplicitAny": true,
-		"removeComments": true,
-		"preserveConstEnums": true,
-		"sourceMap": true,
-		"jsx": "react",
-		"moduleResolution": "node",
-		"skipLibCheck": true,
-    "esModuleInterop": true,
-    "paths": {
-			"~/*": ["src/*"]
-		},
-    "resolveJsonModule": true,
-		"downlevelIteration": true
+	"experimentalDecorators": true,
+	"baseUrl": "./",
+	"module": "esnext",
+	"noImplicitAny": true,
+	"removeComments": true,
+	"preserveConstEnums": true,
+	"sourceMap": true,
+	"jsx": "react",
+	"moduleResolution": "node",
+	"skipLibCheck": true,
+		"esModuleInterop": true,
+	"paths": {
+		"~/*": ["src/*"]
+	},
+	"resolveJsonModule": true,
+	"downlevelIteration": true
   },
   "include": ["src/**/*", "typings/**/*"],
 	"exclude": ["node_modules", "dist", "src/__tests__"]

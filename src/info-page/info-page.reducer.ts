@@ -15,6 +15,8 @@ const infoPageReducer: Reducer<WeatherState, WeatherActionType> = (
         isLoading: true
       };
     case WEATHER_ACTIONS.GET_WEATHER_DATA:
+      console.log(action.payload);
+      
       return {
         ...state,
         isLoading: false

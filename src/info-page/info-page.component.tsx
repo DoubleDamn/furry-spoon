@@ -6,14 +6,14 @@ import { Header } from "./header/header.component";
 type P = {
   isLoading: boolean;
 
-  isLoad(): void;
+  // isLoad(): void;
   getWeatherData(cityName: string): void;
 };
 
 export class InfoPage extends React.PureComponent<P> {
   public componentDidMount(): void {
     console.log(this.props.isLoading);
-    this.props.isLoad();
+    // this.props.isLoad();
   }
 
   public render(): JSX.Element {
