@@ -71,7 +71,6 @@
     "style-loader": "0.23.1",
     "terser-webpack-plugin": "2.3.4",
     "ts-loader": "^6.2.1",
-    "ts-pnp": "1.1.5",
     "tslint-react": "^4.2.0",
     "typescript": "^3.7.5",
     "url-loader": "2.3.0",
@@ -104,15 +103,8 @@
     "roots": [
       "<rootDir>/src"
     ],
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx,ts,tsx}",
-      "!src/**/*.d.ts"
-    ],
     "setupFiles": [
       "react-app-polyfill/jsdom"
-    ],
-    "setupFilesAfterEnv": [
-      "<rootDir>/src/setupTests.ts"
     ],
     "testMatch": [
       "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
@@ -134,16 +126,9 @@
       "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
     },
     "moduleFileExtensions": [
-      "web.js",
-      "js",
-      "web.ts",
       "ts",
-      "web.tsx",
       "tsx",
-      "json",
-      "web.jsx",
-      "jsx",
-      "node"
+      "js"
     ],
     "watchPlugins": [
       "jest-watch-typeahead/filename",

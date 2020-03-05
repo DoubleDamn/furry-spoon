@@ -11,7 +11,7 @@
 		"module": "esnext",
 		"noImplicitAny": true,
 		"removeComments": true,
-		"preserveConstEnums": false,
+		"preserveConstEnums": true,
 		"sourceMap": true,
 		"jsx": "react",
 		"moduleResolution": "node",

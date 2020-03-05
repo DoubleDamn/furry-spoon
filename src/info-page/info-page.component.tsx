@@ -1,32 +1,25 @@
 import * as React from "react";
-import * as ReactDOM from "react-dom";
 // import { AppBar } from "@material/top-app-bar";
 import { Button, Container } from "@material-ui/core";
-import  "./header.scss";
+import { Header } from "./header/header.component";
 
 type P = {
   isLoading: boolean;
 
   isLoad(): void;
-  getWeatherData(): void;
+  getWeatherData(cityName: string): void;
 };
 
 export class InfoPage extends React.PureComponent<P> {
   public componentDidMount(): void {
     console.log(this.props.isLoading);
     this.props.isLoad();
-    this.props.getWeatherData();
-
-    console.log(this.props.isLoading);
   }
+
   public render(): JSX.Element {
     return (
       <>
-        <header className="header_container">
-          <Button color="primary">St. Peterburg</Button>
-          <Button color="primary">Rostov-On-Don</Button>
-          <Button color="primary">Barcelona</Button>
-        </header>
+        <Header onClick={this.props.getWeatherData} />
         <Container>
           <div>Info</div>
         </Container>
