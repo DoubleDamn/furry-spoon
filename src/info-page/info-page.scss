@@ -1,0 +1,30 @@
+.widget_title {
+  text-align: center;
+  color: #e96e50;
+  margin-bottom: 15px;
+}
+
+.widget_container {
+  color: #4e4d4a;
+
+  .widget_city-name {
+    font: 500 24px/1.4 Oswald, Arial, sans-serif;
+  }
+}
+
+.widget_table {
+  font: 400 14px/1.4 Roboto, Arial, sans-serif;
+  border: 1px solid #ddd;
+  width: 80%;
+  border-collapse: collapse;
+
+  tr:nth-child(odd) {
+    background-color: #f9f9f9;
+  }
+
+  td {
+    text-align: left;
+    padding: 5px;
+    border: 1px solid #ddd;
+  }
+}

@@ -4,12 +4,12 @@ import { IS_LOADING, getWeatherForecast } from "./info-page.action";
 
 const mapStateToProps = ({ infoPage }: State) => {
   return {
-    isLoading: infoPage.isLoading
+    isLoading: infoPage.isLoading,
+    weatherInfo: infoPage.weatherInfo
   };
 };
 
 const mapDispatchToProps = (dispatch: any) => ({
-  // isLoad: () => dispatch(IS_LOADING()),
   getWeatherData: (cityName: string) => dispatch(IS_LOADING(cityName))
 });
 

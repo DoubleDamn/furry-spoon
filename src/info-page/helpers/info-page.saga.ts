@@ -1,4 +1,5 @@
-import { takeLatest, call, put, all } from "redux-saga/effects";
+import { takeLatest, call, put, all, delay } from "redux-saga/effects";
+
 import { WEATHER_ACTIONS } from "../../typing/enam";
 import {
   getWeatherForecast,
@@ -16,6 +17,9 @@ function* workerSaga(action: WeatherActionType) {
   try {
     const { data } = yield getWeatherForecast(action.payload);
     console.log(data);
+
+    yield delay(500);
+    
     // dispatch a success action to the store with the new item
     yield put(GET_WEATHER_DATA(data));
   } catch (error) {
