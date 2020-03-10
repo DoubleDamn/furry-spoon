@@ -1,11 +1,13 @@
 import { connect } from "react-redux";
 import { InfoPage } from "./info-page.component";
-import { IS_LOADING, getWeatherForecast } from "./info-page.action";
+import { IS_LOADING } from "./info-page.action";
+import { widgetHeaderSelector, widgetBodySelector } from "./helpers/info-page.selectors";
 
 const mapStateToProps = ({ infoPage }: State) => {
   return {
     isLoading: infoPage.isLoading,
-    weatherInfo: infoPage.weatherInfo
+    weatherHeader: infoPage.weatherInfo ? widgetHeaderSelector(infoPage) : null,
+    widgetBody: infoPage.weatherInfo ? widgetBodySelector(infoPage) : null,
   };
 };
 

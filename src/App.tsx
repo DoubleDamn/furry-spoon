@@ -2,7 +2,6 @@ import * as React from "react";
 import { Provider } from "react-redux";
 import { Route, Switch, BrowserRouter, Redirect } from "react-router-dom";
 import { createStore, applyMiddleware } from "redux";
-import thunk from "redux-thunk";
 import createSagaMiddleware from "redux-saga";
 
 import { reducers } from "./reducers";

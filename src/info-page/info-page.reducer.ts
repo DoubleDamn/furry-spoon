@@ -22,7 +22,7 @@ const infoPageReducer: Reducer<WeatherState, WeatherActionType> = (
           weather: action.payload.weather[0],
           temp: action.payload.main,
           wind: action.payload.wind,
-          name: action.payload.name
+          name: action.payload.name,
         }
       };
     case WEATHER_ACTIONS.WEATHER_DATA_ERROR:
