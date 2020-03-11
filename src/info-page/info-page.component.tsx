@@ -8,9 +8,9 @@ import './info-page.scss';
 
 type P = {
 	isLoading: boolean;
-	weatherInfo: WeatherInfo;
 	weatherHeader: Partial<WeatherInfo> & { temperature: number };
 	widgetBody: WidgetBody[];
+	errorMsg: string;
 
 	getWeatherData(cityName: string): void;
 } & RouteComponentProps;
@@ -22,6 +22,9 @@ export class InfoPage extends React.PureComponent<P> {
 	}
 
 	public render(): JSX.Element {
+		if (this.props.errorMsg) {
+		return <div>Sorry, something went wrong. Error: {this.props.errorMsg}</div>
+		}
 		return (
 			<>
 				<Header onClick={this.props.getWeatherData} />

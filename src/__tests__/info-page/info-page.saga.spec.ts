@@ -1,0 +1,54 @@
+import { workerSaga, watcherSaga } from '../../info-page/helpers/info-page.saga';
+
+import { put, takeEvery, all, call, takeLatest, delay } from 'redux-saga/effects';
+import { WEATHER_ACTIONS } from '../../typing/enam';
+import { IS_LOADING, getWeatherForecast } from '../../info-page/info-page.action';
+
+describe('Saga generator test', () => {
+	const genObject = watcherSaga();
+	it('should run only latest IS_LOADING action and call workerSaga', () => {
+		expect(genObject.next().value).toEqual(takeLatest(WEATHER_ACTIONS.IS_LOADING, workerSaga));
+	});
+
+	it('should be done on next iteration', () => {
+		expect(genObject.next().done).toBeTruthy();
+	});
+});
+
+// describe('Saga worker test', () => {
+// 	const gen = workerSaga(IS_LOADING('Barcelona'));
+
+// 	afterEach(() => {
+// 		jest.clearAllMocks();
+//     });
+    
+//     const mockData = { data: { weather: 'cloud' } };
+//     const mock = jest.fn(name => Promise.resolve(mockData))
+
+// 	jest.mock('../../info-page/info-page.action', () => ({
+// 		getWeatherForecast: jest.fn(name => Promise.resolve(mockData)),
+// 	}));
+
+// 	it('saga return data from get request - first next', () => {
+        
+// 		expect(gen.next().value).toEqual(mock);
+//     });
+//     it('delay for 500ms - second next', () => {
+// 		expect(gen.next()).toEqual(delay(500));
+// 	});
+
+// });
+	// test('saga should return a data from Api call', async () => {
+	// 	const dispatchedActions = [];
+
+	// 	const fakeStore = {
+	// 		getState: () => ({ isLoading: true }),
+	// 		dispatch: action => dispatchedActions.push(action),
+	// 	};
+
+	// 	const mock = jest
+	// 		.spyOn(getWeatherForecast, 'get')
+	// 		.mockImplementation(name => Promise.resolve(mockData));
+	// 	jest.fn(name => Promise.resolve(mockData));
+	// gen.next(), put({ type: 'INCREMENT' });
+	// });

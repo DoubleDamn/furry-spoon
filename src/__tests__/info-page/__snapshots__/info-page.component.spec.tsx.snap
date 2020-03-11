@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InfoPage WidgetPage Loader should match loading shapshot 1`] = `ShallowWrapper {}`;
+
+exports[`InfoPage WidgetPage Widget should match widget snapshot 1`] = `ShallowWrapper {}`;
