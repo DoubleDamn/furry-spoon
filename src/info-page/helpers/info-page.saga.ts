@@ -18,14 +18,14 @@ export function* workerSaga(action: WeatherActionType) {
 	try {
 		const { data } = yield getWeatherForecast(action.payload);
 
-		yield delay(500);
+		 yield delay(400); //to see loader
 
 		// dispatch a success action to the store with the new item
 		yield put(GET_WEATHER_DATA(data));
 	} catch (error) {
 		console.log(error);
 		// dispatch a failure action to the store with the error
-		if (error.response.status === 404) {
+		if (error.response && error.response.status === 404) {
 			yield history.push('/page-not-found');
 		} else {
 			yield put(WEATHER_DATA_ERROR(error));

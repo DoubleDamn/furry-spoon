@@ -1,9 +1,8 @@
 import * as React from 'react';
-import { RouteComponentProps, Redirect } from 'react-router';
+import { RouteComponentProps } from 'react-router';
 import { Container } from '@material-ui/core';
 
 import { Spinner } from '../common/spinner/spinner';
-import { Header } from '../common/header/header.component';
 import './info-page.scss';
 
 type P = {
@@ -23,14 +22,13 @@ export class InfoPage extends React.PureComponent<P> {
 	}
 
 	public render(): JSX.Element {
-		const { error, isLoading, getWeatherData } = this.props;
+		const { error, isLoading } = this.props;
 		if (error) {
 			return <div>Sorry, something went wrong. Error: {error.message}</div>;
 		}
 
 		return (
 			<>
-				<Header onClick={getWeatherData} />
 				{isLoading ? (
 					<Spinner />
 				) : (

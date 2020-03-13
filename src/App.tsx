@@ -11,7 +11,8 @@ import { CITIES_NAMES } from './typing/enum';
 import { rootSaga } from './info-page/helpers/info-page.saga';
 
 import './index.css';
-import { PageNotFound } from './components/page-not-found';
+import { PageNotFound } from './components/page-not-found/page-not-found';
+import { Header } from './common/header/header.component';
 
 const sagaMiddleware = createSagaMiddleware();
 export const enhancers = applyMiddleware(sagaMiddleware);
@@ -21,6 +22,7 @@ export const store = createStore(reducers, enhancers);
 export const App = () => (
 	<Provider store={store}>
 		<Router history={history}>
+			<Header />
 			<Switch>
 				<Route exact path="/page-not-found" component={PageNotFound} />
 				<Route exact path="/:cityName" component={InfoPage} />

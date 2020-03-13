@@ -1,8 +1,9 @@
 import { workerSaga, watcherSaga } from '../../info-page/helpers/info-page.saga';
 
 import { put, takeEvery, all, call, takeLatest, delay } from 'redux-saga/effects';
-import { WEATHER_ACTIONS } from '../../typing/enam';
-import { IS_LOADING, getWeatherForecast } from '../../info-page/info-page.action';
+import { WEATHER_ACTIONS } from '../../typing/enum';
+// import { IS_LOADING, getWeatherForecast } from '../../info-page/info-page.action';
+import * as action from '../../info-page/info-page.action';
 
 describe('Saga generator test', () => {
 	const genObject = watcherSaga();
@@ -15,40 +16,42 @@ describe('Saga generator test', () => {
 	});
 });
 
-// describe('Saga worker test', () => {
-// 	const gen = workerSaga(IS_LOADING('Barcelona'));
+describe('Saga worker test', () => {
+	const gen = workerSaga(action.IS_LOADING('Barcelona'));
 
-// 	afterEach(() => {
-// 		jest.clearAllMocks();
-//     });
-    
-//     const mockData = { data: { weather: 'cloud' } };
-//     const mock = jest.fn(name => Promise.resolve(mockData))
+	afterEach(() => {
+		jest.clearAllMocks();
+	});
 
-// 	jest.mock('../../info-page/info-page.action', () => ({
-// 		getWeatherForecast: jest.fn(name => Promise.resolve(mockData)),
-// 	}));
+	const mockData = { data: { weather: 'cloud' } };
+	// const mock = jest.fn(name => Promise.resolve(mockData));
 
-// 	it('saga return data from get request - first next', () => {
-        
-// 		expect(gen.next().value).toEqual(mock);
-//     });
-//     it('delay for 500ms - second next', () => {
-// 		expect(gen.next()).toEqual(delay(500));
-// 	});
+	const api = jest.spyOn(action, 'getWeatherForecast');
 
+	it('saga return data from get request - first next', () => {
+		const data = gen.next().value;
+		console.log(data);
+		expect(data).toEqual(Promise.resolve(mockData));
+	});
+
+	it('delay for 400ms - second next', () => {
+		console.log(gen.next());
+
+		expect(gen.next()).toEqual(delay(400));
+	});
+});
+
+// test('saga should return a data from Api call', async () => {
+// 	const dispatchedActions = [];
+
+// 	const fakeStore = {
+// 		getState: () => ({ isLoading: true }),
+// 		dispatch: action => dispatchedActions.push(action),
+// 	};
+
+// 	const mock = jest
+// 		.spyOn(getWeatherForecast, 'get')
+// 		.mockImplementation(name => Promise.resolve(mockData));
+// 	jest.fn(name => Promise.resolve(mockData));
+// gen.next(), put({ type: 'INCREMENT' });
 // });
-	// test('saga should return a data from Api call', async () => {
-	// 	const dispatchedActions = [];
-
-	// 	const fakeStore = {
-	// 		getState: () => ({ isLoading: true }),
-	// 		dispatch: action => dispatchedActions.push(action),
-	// 	};
-
-	// 	const mock = jest
-	// 		.spyOn(getWeatherForecast, 'get')
-	// 		.mockImplementation(name => Promise.resolve(mockData));
-	// 	jest.fn(name => Promise.resolve(mockData));
-	// gen.next(), put({ type: 'INCREMENT' });
-	// });
