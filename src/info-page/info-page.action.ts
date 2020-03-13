@@ -1,5 +1,5 @@
 import axios from "axios";
-import { WEATHER_ACTIONS } from "../typing/enam";
+import { WEATHER_ACTIONS } from "../typing/enum";
 
 const API_KEY = "appid=28a658487aea99c56a8209ff5fbe7387";
 export const BASE_URL = "https://api.openweathermap.org/data/2.5";

@@ -1,6 +1,6 @@
 import { Reducer } from 'redux';
 import { WeatherActionType } from './info-page.action';
-import { WEATHER_ACTIONS } from '../typing/enam';
+import { WEATHER_ACTIONS } from '../typing/enum';
 
 export const infoPageReducer: Reducer<WeatherState, WeatherActionType> = (
 	state = initialState,
@@ -27,7 +27,7 @@ export const infoPageReducer: Reducer<WeatherState, WeatherActionType> = (
 			return {
 				...state,
 				isLoading: false,
-				errorMsg: action.payload,
+				error: action.payload,
 			};
 		default:
 			return state;
@@ -37,5 +37,5 @@ export const infoPageReducer: Reducer<WeatherState, WeatherActionType> = (
 export const initialState: WeatherState = {
 	isLoading: true,
 	weatherInfo: null,
-	errorMsg: null,
+	error: null,
 };

@@ -33,7 +33,6 @@ export const widgetBodySelector = createSelector(
 			'Wind',
 		];
 		const weatherProperties: TemperatureDetails = { ...tempDetails, ...{ wind: wind.speed } };
-		console.log(weatherProperties);
 
 		return Object.keys(weatherProperties).reduce((propsArr, curr: keyof TemperatureDetails, i) => {
 			const mark = curr.includes('wind')

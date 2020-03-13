@@ -1,7 +1,7 @@
 declare type WeatherState = {
 	isLoading: boolean;
 	weatherInfo: WeatherInfo;
-	errorMsg: string;
+	error: { message: string; code: number };
 };
 
 declare type WeatherInfo = {

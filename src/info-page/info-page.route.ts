@@ -6,7 +6,7 @@ import { widgetHeaderSelector, widgetBodySelector } from "./helpers/info-page.se
 const mapStateToProps = ({ infoPage }: State) => {
   return {
     isLoading: infoPage.isLoading,
-    errorMsg: infoPage.errorMsg,
+    error: infoPage.error,
     weatherHeader: infoPage.weatherInfo ? widgetHeaderSelector(infoPage) : null,
     widgetBody: infoPage.weatherInfo ? widgetBodySelector(infoPage) : null,
   };

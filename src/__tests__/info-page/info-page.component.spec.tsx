@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import { InfoPage } from '../../info-page/info-page.component';
-import { CITIES_NAMES } from '../../typing/enam';
+import { CITIES_NAMES } from '../../typing/enum';
 import { Spinner } from '../../common/spinner/spinner';
 import { Container } from '@material-ui/core';
 import { Header } from '../../common/header/header.component';
@@ -16,7 +16,7 @@ describe('InfoPage', () => {
 		match: { url: `/${CITIES_NAMES.spb}`, isExact: null, path: null, params: null },
 		history: null,
 		location: null,
-		errorMsg: null,
+		error: null,
 
 		getWeatherData: jest.fn(),
 	};
@@ -56,7 +56,7 @@ describe('InfoPage', () => {
 		const errorProps = {
 			...props,
 			isLoading: false,
-			errorMsg: 'error message',
+			error: {message:'error message', code: 404},
 		};
 
 		beforeEach(() => {

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { RouteComponentProps } from 'react-router';
+import { RouteComponentProps, Redirect } from 'react-router';
 import { Container } from '@material-ui/core';
 
 import { Spinner } from '../common/spinner/spinner';
@@ -10,25 +10,28 @@ type P = {
 	isLoading: boolean;
 	weatherHeader: Partial<WeatherInfo> & { temperature: number };
 	widgetBody: WidgetBody[];
-	errorMsg: string;
+	error: { message: string; code: number };
 
 	getWeatherData(cityName: string): void;
 } & RouteComponentProps;
 
 export class InfoPage extends React.PureComponent<P> {
+	private cityName: string = this.props.match.url.slice(1);
+
 	public componentDidMount(): void {
-		const cityName = this.props.match.url.slice(1);
-		this.props.getWeatherData(cityName);
+		this.props.getWeatherData(this.cityName);
 	}
 
 	public render(): JSX.Element {
-		if (this.props.errorMsg) {
-		return <div>Sorry, something went wrong. Error: {this.props.errorMsg}</div>
+		const { error, isLoading, getWeatherData } = this.props;
+		if (error) {
+			return <div>Sorry, something went wrong. Error: {error.message}</div>;
 		}
+
 		return (
 			<>
-				<Header onClick={this.props.getWeatherData} />
-				{this.props.isLoading ? (
+				<Header onClick={getWeatherData} />
+				{isLoading ? (
 					<Spinner />
 				) : (
 					<Container>

@@ -2,7 +2,7 @@ import * as React from "react";
 import "./header.scss";
 import { Button } from "@material-ui/core";
 import { NavLink } from "react-router-dom";
-import { CITIES_NAMES } from "../../typing/enam";
+import { CITIES_NAMES } from "../../typing/enum";
 
 type P = {
   onClick(cityName: string): void;
