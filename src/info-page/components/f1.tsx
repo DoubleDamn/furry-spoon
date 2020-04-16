@@ -22,7 +22,7 @@ export class InfoPage extends React.PureComponent<P> {
 	}
 
 	public render(): JSX.Element {
-		const { error, isLoading } = this.props;
+		const {  isLoading } = this.props;
 
 		return (
 			<>
