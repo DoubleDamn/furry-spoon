@@ -22,7 +22,7 @@ export class InfoPage extends React.PureComponent<P> {
 	}
 
 	public render(): JSX.Element {
-		const { error, isLoading } = this.props;
+		const { isLoading } = this.props;
 
 		return (
 			<>
@@ -47,7 +47,7 @@ export class InfoPage extends React.PureComponent<P> {
 			<>
 				<span className="widget_city-name">Weather in {name}</span>
 				<div>
-					<h3>Current temperature: {temperature} °C</h3>
+					<h3>Current : {temperature} °C</h3>
 				</div>
 				<div>
 					<h3>Current temperature: {temperature} °C</h3>
