@@ -49,6 +49,9 @@ export class InfoPage extends React.PureComponent<P> {
 				<div>
 					<h3>Current temperature: {temperature} °C</h3>
 				</div>
+				<div>
+					<h3>Current temperature: {temperature} °C</h3>
+				</div>
 				<span>
 					Cloudiness: {weather.main}, {weather.description}
 				</span>
